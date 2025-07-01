@@ -1,6 +1,6 @@
 package com.example.ms_kajita.controller;
 
-import com.example.ms_kajita.dto.UsuarioAsistenciaStatsDto;
+import com.example.ms_kajita.dto.UsuarioEstadoStatsDto;
 import com.example.ms_kajita.entity.Asistencia;
 import com.example.ms_kajita.service.AsistenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import com.example.ms_kajita.entity.Asistencia;
-import com.example.ms_kajita.service.AsistenciaService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -88,18 +83,21 @@ public class AsistenciaController {
 
     // --- ESTADÍSTICAS ---
 
-    @GetMapping("/stats/faltas")
-    public ResponseEntity<List<UsuarioAsistenciaStatsDto>> usuariosConMasFaltas() {
-        return ResponseEntity.ok(asistenciaService.usuariosConMasFaltas());
+    @GetMapping("/faltas")
+    public ResponseEntity<List<UsuarioEstadoStatsDto>> usuariosConMasFaltas() {
+        List<UsuarioEstadoStatsDto> stats = asistenciaService.usuariosConMasFaltas();
+        return ResponseEntity.ok(stats);
     }
 
-    @GetMapping("/stats/tardanzas")
-    public ResponseEntity<List<UsuarioAsistenciaStatsDto>> usuariosConMasTardanzas() {
-        return ResponseEntity.ok(asistenciaService.usuariosConMasTardanzas());
+    @GetMapping("/tardanzas")
+    public ResponseEntity<List<UsuarioEstadoStatsDto>> usuariosConMasTardanzas() {
+        List<UsuarioEstadoStatsDto> stats = asistenciaService.usuariosConMasTardanzas();
+        return ResponseEntity.ok(stats);
     }
 
-    @GetMapping("/stats/presentes")
-    public ResponseEntity<List<UsuarioAsistenciaStatsDto>> usuariosConMasPresentes() {
-        return ResponseEntity.ok(asistenciaService.usuariosConMasPresentes());
+    @GetMapping("/presentes")
+    public ResponseEntity<List<UsuarioEstadoStatsDto>> usuariosConMasPresentes() {
+        List<UsuarioEstadoStatsDto> stats = asistenciaService.usuariosConMasPresentes();
+        return ResponseEntity.ok(stats);
     }
 }

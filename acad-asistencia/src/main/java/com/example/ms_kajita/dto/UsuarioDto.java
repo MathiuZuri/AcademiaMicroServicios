@@ -12,7 +12,7 @@ public class UsuarioDto {
 
     private String cargo;
 
-    private String user;
+    private String userName;
 
     @Override
     public String toString() {
@@ -21,7 +21,7 @@ public class UsuarioDto {
                 ", clave='" + clave + '\'' +
                 ", estado='" + estado + '\'' +
                 ", cargo='" + cargo + '\'' +
-                ", user='" + user + '\'' +
+                ", user='" + userName + '\'' +
                 '}';
     }
 
@@ -32,7 +32,7 @@ public class UsuarioDto {
         this.idUsuario = idUsuario;
         this.clave = clave;
         this.estado = estado;
-        this.user = user;
+        this.userName = user;
         this.cargo = cargo;
     }
 
@@ -45,10 +45,10 @@ public class UsuarioDto {
     }
 
     public String getUser() {
-        return user;
+        return userName;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.userName = user;
     }
 }

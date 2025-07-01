@@ -175,46 +175,50 @@ public class AsistenciaServiceImpl implements AsistenciaService {
                 .collect(Collectors.toList());
     }
 
-    // MÉTODOS DE ESTADÍSTICAS
-    private Map<Long, UsuarioAsistenciaStatsDto> agruparStats() {
-        Map<Long, UsuarioAsistenciaStatsDto> stats = new HashMap<>();
-        listar().forEach(a -> {
-            Long uid = a.getUsuarioIdUsuario();
-            stats.computeIfAbsent(uid, id -> {
-                UsuarioAsistenciaStatsDto dto = new UsuarioAsistenciaStatsDto();
-                dto.setUsuarioId(id);
-                dto.setUsuarioNombre(a.getUsuarioNombre());
-                return dto;
-            });
-            UsuarioAsistenciaStatsDto dto = stats.get(uid);
-            switch (a.getEstadoAsistencia().toLowerCase()) {
-                case "falta":    dto.setFaltas(dto.getFaltas() + 1);    break;
-                case "tardanza": dto.setTardanzas(dto.getTardanzas() + 1); break;
-                case "presente": dto.setPresentes(dto.getPresentes() + 1); break;
-            }
-        });
-        return stats;
-    }
+    private List<UsuarioEstadoStatsDto> agruparPorEstado(String estadoBuscado) {
+        // 1. Recupera todas las asistencias enriquecidas
+        List<Asistencia> todas = listar();
 
-    @Override
-    public List<UsuarioAsistenciaStatsDto> usuariosConMasFaltas() {
-        return agruparStats().values().stream()
-                .sorted(Comparator.comparingLong(UsuarioAsistenciaStatsDto::getFaltas).reversed())
+        // 2. Filtra por el estado (ignore case) y agrupa
+        Map<Long, UsuarioEstadoStatsDto> mapa = new HashMap<>();
+        todas.stream()
+                .filter(a -> a.getEstadoAsistencia() != null
+                        && a.getEstadoAsistencia().equalsIgnoreCase(estadoBuscado))
+                .forEach(a -> {
+                    Long uid = a.getUsuarioIdUsuario();
+                    mapa.compute(uid, (id, dto) -> {
+                        if (dto == null) {
+                            // primera vez que vemos a este usuario
+                            return new UsuarioEstadoStatsDto(
+                                    id,
+                                    a.getUsuarioNombre(),
+                                    1
+                            );
+                        } else {
+                            dto.setCantidad(dto.getCantidad() + 1);
+                            return dto;
+                        }
+                    });
+                });
+
+        // 3. Ordenar descendentemente por cantidad y devolver lista
+        return mapa.values().stream()
+                .sorted(Comparator.comparingLong(UsuarioEstadoStatsDto::getCantidad).reversed())
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<UsuarioAsistenciaStatsDto> usuariosConMasTardanzas() {
-        return agruparStats().values().stream()
-                .sorted(Comparator.comparingLong(UsuarioAsistenciaStatsDto::getTardanzas).reversed())
-                .collect(Collectors.toList());
+    public List<UsuarioEstadoStatsDto> usuariosConMasFaltas() {
+        return agruparPorEstado("falta");
     }
 
     @Override
-    public List<UsuarioAsistenciaStatsDto> usuariosConMasPresentes() {
-        return agruparStats().values().stream()
-                .sorted(Comparator.comparingLong(UsuarioAsistenciaStatsDto::getPresentes).reversed())
-                .collect(Collectors.toList());
+    public List<UsuarioEstadoStatsDto> usuariosConMasTardanzas() {
+        return agruparPorEstado("tardanza");
     }
 
+    @Override
+    public List<UsuarioEstadoStatsDto> usuariosConMasPresentes() {
+        return agruparPorEstado("presente");
+    }
 }

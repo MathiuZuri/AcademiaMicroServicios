@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "acad-usuario-service", path = "/usuarios")
+@FeignClient(name = "acad-auth-service", path = "/auth")
 
 public interface UsuarioFeign {
 
