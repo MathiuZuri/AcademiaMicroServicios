@@ -112,9 +112,5 @@ public class InsidenciaHistoricoServiceImpl implements InsidenciaHistoricoServic
         }
         return null;
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 }

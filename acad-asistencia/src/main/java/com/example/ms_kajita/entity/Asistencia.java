@@ -34,11 +34,7 @@ public class Asistencia {
     private String docenteNombre;
 
     @Column(name = "ESTADOASISTENCIA")
-<<<<<<< HEAD
     private String estadoAsistencia;
-=======
-    private String estadoAsistencia; // Changed to camelCase for Java convention
->>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 
     @Column(name = "PlanAcademico_idPlanAcademico")
     private Integer planAcademicoIdPlanAcademico;
