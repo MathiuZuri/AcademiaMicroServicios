@@ -1,6 +1,13 @@
 package com.example.ms_kajita.service.impl;
 
+<<<<<<< HEAD
 import com.example.ms_kajita.dto.*;
+=======
+import com.example.ms_kajita.dto.CursoDto;
+import com.example.ms_kajita.dto.DocenteDto;
+import com.example.ms_kajita.dto.PlanAcademicoDto;
+import com.example.ms_kajita.dto.UsuarioDto;
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 import com.example.ms_kajita.entity.Asistencia;
 import com.example.ms_kajita.feing.CursoFeing;
 import com.example.ms_kajita.feing.DocenteFeing;
@@ -11,8 +18,13 @@ import com.example.ms_kajita.service.AsistenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.util.*;
+=======
+import java.util.List;
+import java.util.Optional;
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 import java.util.stream.Collectors;
 
 @Service
@@ -129,6 +141,7 @@ public class AsistenciaServiceImpl implements AsistenciaService {
         }
         return null;
     }
+<<<<<<< HEAD
 
     // Helper para enriquecer nombres
     private Asistencia enriquecer(Asistencia a) {
@@ -209,4 +222,6 @@ public class AsistenciaServiceImpl implements AsistenciaService {
                 .collect(Collectors.toList());
     }
 
+=======
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 }

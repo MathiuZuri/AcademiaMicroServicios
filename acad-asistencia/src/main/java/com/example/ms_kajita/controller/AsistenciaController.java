@@ -1,5 +1,6 @@
 package com.example.ms_kajita.controller;
 
+<<<<<<< HEAD
 import com.example.ms_kajita.dto.UsuarioAsistenciaStatsDto;
 import com.example.ms_kajita.entity.Asistencia;
 import com.example.ms_kajita.service.AsistenciaService;
@@ -9,11 +10,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+=======
+import com.example.ms_kajita.entity.Asistencia;
+import com.example.ms_kajita.service.AsistenciaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/asistencias")
+=======
+@RequestMapping("/api/asistencias")
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 public class AsistenciaController {
 
     @Autowired
@@ -56,6 +69,7 @@ public class AsistenciaController {
         asistenciaService.eliminarPorId(id);
         return ResponseEntity.noContent().build();
     }
+<<<<<<< HEAD
     // --- FILTROS ---
 
     @GetMapping("/buscar-usuario")
@@ -96,4 +110,6 @@ public class AsistenciaController {
     public ResponseEntity<List<UsuarioAsistenciaStatsDto>> usuariosConMasPresentes() {
         return ResponseEntity.ok(asistenciaService.usuariosConMasPresentes());
     }
+=======
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 }

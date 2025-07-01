@@ -1,5 +1,6 @@
 package com.example.ms_kajita.repository;
 
+<<<<<<< HEAD
 import com.example.ms_kajita.entity.Asistencia;
 import com.example.ms_kajita.entity.InsidenciaHistorico;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,10 @@ public interface InsidenciaHistoricoRepository extends JpaRepository<InsidenciaH
 
     // Listar por curso (id)
     List<Asistencia> findByCursoIdCurso(Integer cursoIdCurso);
+=======
+import com.example.ms_kajita.entity.InsidenciaHistorico;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InsidenciaHistoricoRepository extends JpaRepository<InsidenciaHistorico, Integer> {
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 }

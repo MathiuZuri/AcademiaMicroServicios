@@ -2,6 +2,7 @@ package com.example.ms_kajita.repository;
 
 import com.example.ms_kajita.entity.Asistencia;
 import org.springframework.data.jpa.repository.JpaRepository;
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
@@ -30,4 +31,8 @@ public interface AsistenciaRepository extends JpaRepository<Asistencia, Integer>
         String getEstado();
         Long getCantidad();
     }
+=======
+
+public interface AsistenciaRepository extends JpaRepository<Asistencia, Integer> {
+>>>>>>> c28b2f9cf57a2083a88e90964b001d42b556217e
 }
