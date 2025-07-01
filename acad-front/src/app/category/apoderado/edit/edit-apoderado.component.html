@@ -1,0 +1,35 @@
+<h2>Editar Apoderado</h2>
+<form [formGroup]="apoderadoForm" (ngSubmit)="guardar()">
+  <div class="mb-3">
+    <label>Nombres</label>
+    <input formControlName="nombres" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label>Apellido Paterno</label>
+    <input formControlName="apellidoPaterno" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label>Apellido Materno</label>
+    <input formControlName="apellidoMaterno" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label>Fecha de Nacimiento</label>
+    <input type="date" formControlName="fechaNacimiento" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label>Dirección</label>
+    <input formControlName="direccion" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label>Rol en la Familia</label>
+    <input formControlName="rolFamilia" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+</form>
