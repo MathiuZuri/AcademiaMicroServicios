@@ -23,7 +23,7 @@ public interface AsistenciaService {
     public void eliminarPorId(Integer id);
 
 
-    List<Asistencia> listarPorNombreUsuario(String nombreUsuario);
+    List<Asistencia> listarPorNombreUsuario(String userName);
 
     List<Asistencia> listarPorFecha(LocalDateTime desde, LocalDateTime hasta);
 

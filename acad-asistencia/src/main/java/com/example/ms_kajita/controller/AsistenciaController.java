@@ -61,8 +61,8 @@ public class AsistenciaController {
 
     @GetMapping("/buscar-usuario")
     public ResponseEntity<List<Asistencia>> listarPorNombreUsuario(
-            @RequestParam String nombre) {
-        List<Asistencia> list = asistenciaService.listarPorNombreUsuario(nombre);
+            @RequestParam String userName) {
+        List<Asistencia> list = asistenciaService.listarPorNombreUsuario(userName);
         return ResponseEntity.ok(list);
     }
 

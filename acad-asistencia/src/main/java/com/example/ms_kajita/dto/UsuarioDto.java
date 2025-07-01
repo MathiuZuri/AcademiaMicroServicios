@@ -4,9 +4,9 @@ package com.example.ms_kajita.dto;
 
 public class UsuarioDto {
 
-    private Integer idUsuario;
+    private Integer id;
 
-    private String clave;
+    private String password;
 
     private String estado;
 
@@ -17,8 +17,8 @@ public class UsuarioDto {
     @Override
     public String toString() {
         return "UsuarioDto{" +
-                "idUsuario=" + idUsuario +
-                ", clave='" + clave + '\'' +
+                "idUsuario=" + id +
+                ", clave='" + password + '\'' +
                 ", estado='" + estado + '\'' +
                 ", cargo='" + cargo + '\'' +
                 ", user='" + userName + '\'' +
@@ -28,20 +28,20 @@ public class UsuarioDto {
     public UsuarioDto() {
     }
 
-    public UsuarioDto(Integer idUsuario, String clave, String estado, String user, String cargo) {
-        this.idUsuario = idUsuario;
-        this.clave = clave;
+    public UsuarioDto(Integer id, String clave, String estado, String user, String cargo) {
+        this.id = id;
+        this.password = clave;
         this.estado = estado;
         this.userName = user;
         this.cargo = cargo;
     }
 
     public Integer getIdUsuario() {
-        return idUsuario;
+        return id;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUsuario(Integer id) {
+        this.id = id;
     }
 
     public String getUser() {
